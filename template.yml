@@ -23,12 +23,12 @@ Resources:
             Method: get
 
 Outputs:
-  VisitorCounterdApi:
+  VisitorCounterApi:
     Description: "API Gateway endpoint URL for Prod stage for Visitor count function"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/get-visitor-count/"
   VisitorCounterFunction:
     Description: "Visitor count Lambda Function ARN"
     Value: !GetAtt VisitorCounterFunction.Arn
-  VisitorCountFunctionIamRole:
+  VisitorCounterFunctionIamRole:
     Description: "Implicit IAM Role created for visitor count function"
-    Value: !GetAtt VisitorCountFunctionRole.Arn
+    Value: !GetAtt VisitorCounterFunctionRole.Arn
