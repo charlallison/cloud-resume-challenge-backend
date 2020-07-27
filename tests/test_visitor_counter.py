@@ -2,7 +2,8 @@ import unittest
 
 import boto3
 from moto import mock_dynamodb2
-from visitor_counter import lambda_handler
+
+from visitor_counter import count
 
 
 @mock_dynamodb2
@@ -32,7 +33,7 @@ class TestDynamoDb(unittest.TestCase):
             }
         )
 
-        response = lambda_handler(None, dynamodb=self.connection)
+        response = count.lambda_handler(None, dynamodb=self.connection)
         self.assertNotEqual(0, response['body'])
         self.assertEqual(response['statusCode'], 200)
 
