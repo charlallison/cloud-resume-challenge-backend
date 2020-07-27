@@ -34,7 +34,6 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-# SAM build and deploy
     - name: sam build
         uses: youyo/aws-sam-action/python3.8@master
         with:
