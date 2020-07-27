@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Lambda function that connects to  increments record based on
+  visits to a web site.
+
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  VisitorCounterFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: count/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Events:
+        VisitorCounter:
+          Type: Api
+          Properties:
+            Path: /get-visitor-count
+            Method: get
+
+Outputs:
+  VisitorCounterdApi:
+    Description: "API Gateway endpoint URL for Prod stage for Visitor count function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/get-visitor-count/"
+  VisitorCounterFunction:
+    Description: "Visitor count Lambda Function ARN"
+    Value: !GetAtt VisitorCounterFunction.Arn
+  VisitorCountFunctionIamRole:
+    Description: "Implicit IAM Role created for visitor count function"
+    Value: !GetAtt VisitorCountFunctionRole.Arn
