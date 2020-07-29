@@ -26,7 +26,8 @@ def test_lambda_handler():
     )
 
     table.put_item(Item={'PKey': '1', 'visitorCount': 1})
-    from count import lambda_handler
+
+    from app import lambda_handler
     response = lambda_handler(None, None)
     assert 2 == response['body']
     assert response['statusCode'] == 200
