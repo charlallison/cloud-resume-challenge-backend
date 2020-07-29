@@ -14,5 +14,8 @@ def lambda_handler(event, context):
     table.put_item(Item={'PKey': '1', 'visitorCount': count})
     return {
         'statusCode': 200,
-        'body': count
+        'body': count,
+        'headers': {
+            'Access-Control-Allow-Origin': '*'
+        }
     }
