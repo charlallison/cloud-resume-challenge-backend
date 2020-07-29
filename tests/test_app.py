@@ -6,7 +6,7 @@ def test_lambda_handler():
     import boto3
     connection = boto3.resource('dynamodb', region_name='us-east-2')
     table = connection.create_table(
-        TableName='VisitorsRecord',
+        TableName='VisitorRecord',
         KeySchema=[
             {
                 'AttributeName': 'PKey',
