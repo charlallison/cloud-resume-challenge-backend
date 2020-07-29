@@ -22,6 +22,20 @@ Resources:
             Path: /get-visitor-count
             Method: get
 
+  DynamoDBTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: VisitorsRecord
+      AttributeDefinitions:
+        - AttributeName: PKey
+          AttributeType: S
+      KeySchema:
+        - AttributeName: PKey
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+
 Outputs:
   VisitorCounterApi:
     Description: "API Gateway endpoint URL for Prod stage for Visitor count function"

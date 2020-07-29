@@ -6,5 +6,4 @@ stack_name = "VisitorCounter"
 s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-11ntdqnn2cvon"
 s3_prefix = "VisitorCounter"
 region = "us-east-2"
-confirm_changeset = false
 capabilities = "CAPABILITY_IAM"
