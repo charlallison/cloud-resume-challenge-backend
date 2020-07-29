@@ -2,9 +2,8 @@ version = 0.1
 [default]
 [default.deploy]
 [default.deploy.parameters]
-stack_name = "VisitorCounterApp"
-s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-3x96ksc41pgt"
-s3_prefix = "VisitorCounterApp"
+stack_name = "VisitorCounter"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1hdqva1sclpse"
+s3_prefix = "VisitorCounter"
 region = "us-east-2"
-confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
