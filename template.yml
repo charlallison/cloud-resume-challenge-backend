@@ -15,6 +15,9 @@ Resources:
       CodeUri: count/
       Handler: app.lambda_handler
       Runtime: python3.8
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: VisitorsRecord
       Events:
         VisitorCounter:
           Type: Api
