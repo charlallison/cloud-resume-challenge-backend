@@ -1,10 +1,10 @@
 from boto3 import resource
 
 connection = resource('dynamodb', region_name='us-east-2')
+table = connection.Table('VisitorsRecord')
 
 
 def lambda_handler(event, context):
-    table = connection.Table('VisitorsRecord')
     record = table.get_item(Key={'PKey': '1'})
     record.get('Item') or table.put_item(Item={'PKey': '1', 'visitorCount': 0})
 

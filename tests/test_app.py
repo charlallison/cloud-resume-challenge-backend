@@ -1,11 +1,12 @@
+import boto3
 from moto import mock_dynamodb2
 from count import app
+
+connection = boto3.resource('dynamodb', region_name='us-east-2')
 
 
 @mock_dynamodb2
 def test_lambda_handler():
-    import boto3
-    connection = boto3.resource('dynamodb', region_name='us-east-2')
     table = connection.create_table(
         TableName='VisitorsRecord',
         KeySchema=[
